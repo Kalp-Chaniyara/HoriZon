@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 type NavItem = {
      label: string;
@@ -25,7 +26,6 @@ const Header = () => {
                     <div className="flex justify-between items-center py-4">
                          <div className="flex items-center">
                               <Link to="/" className="flex items-center space-x-2">
-                                   {/* <img src="/logo.svg" alt="HoriZon Logo" width={40} height={40} /> */}
                                    <span className="text-xl font-semibold text-blue-600">HoriZon</span>
                               </Link>
                          </div>
@@ -44,21 +44,26 @@ const Header = () => {
                                         ))}
                                    </ul>
                               </nav>
-                              {isLoggedIn ? (
+                              {/* {isLoggedIn ? (
                                    <button
                                         onClick={() => navigate('/profile')}
                                         className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
                                    >
                                         Profile
                                    </button>
-                              ) : (
+                              ) : ( */}
                                    <button
                                         onClick={() => navigate('/signin')}
                                         className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
                                    >
-                                        Sign In
+                                        <SignedOut>
+                                             <SignInButton />
+                                        </SignedOut>
+                                        <SignedIn>
+                                             <UserButton />
+                                        </SignedIn>
                                    </button>
-                              )}
+                              {/* )} */}
                          </div>
                          <div className="md:hidden">
                               <button
