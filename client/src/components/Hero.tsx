@@ -12,7 +12,7 @@ const Hero = () => {
                               <h1 className="text-4xl sm:text-5xl font-bold mb-4">Welcome to HoriZon</h1>
                               <p className="text-xl mb-8">A safe space for addiction recovery and support</p>
                               <button
-                                   onClick={() => navigate("/signin")}
+                                   onClick={() => navigate("/sign-in")}
                                    className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300"
                               >
                                    Join Our Community
