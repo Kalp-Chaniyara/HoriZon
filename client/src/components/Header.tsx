@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 type NavItem = {
      label: string;
@@ -52,18 +51,12 @@ const Header = () => {
                                         Profile
                                    </button>
                               ) : ( */}
-                                   <button
-                                        onClick={() => navigate('/signin')}
-                                        className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
-                                   >
-                                        <SignedOut>
-                                             <SignInButton />
-                                        </SignedOut>
-                                        <SignedIn>
-                                             <UserButton />
-                                        </SignedIn>
-                                   </button>
-                              {/* )} */}
+                              <button
+                                   onClick={() => navigate('/sign-in')}
+                                   className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
+                              >
+                                   Sign In
+                              </button>
                          </div>
                          <div className="md:hidden">
                               <button
@@ -94,7 +87,7 @@ const Header = () => {
                                                   </Link>
                                              </li>
                                         ))}
-                                        {isLoggedIn ? (
+                                        {/* {isLoggedIn ? (
                                              <li>
                                                   <button
                                                        onClick={() => navigate('/profile')}
@@ -103,16 +96,16 @@ const Header = () => {
                                                        Profile
                                                   </button>
                                              </li>
-                                        ) : (
+                                        ) : ( */}
                                              <li>
                                                   <button
-                                                       onClick={() => navigate('/signin')}
+                                                       onClick={() => navigate('/sign-in')}
                                                        className="block text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out"
                                                   >
                                                        Sign In
                                                   </button>
                                              </li>
-                                        )}
+                                        {/* )} */}
                                    </ul>
                               </nav>
                          </div>
