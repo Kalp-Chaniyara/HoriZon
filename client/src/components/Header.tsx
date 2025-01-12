@@ -1,6 +1,8 @@
+import { UserButton } from '@clerk/clerk-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
 
 type NavItem = {
      label: string;
@@ -14,10 +16,11 @@ const navItems: NavItem[] = [
 
 const Header = () => {
 
+     const { isSignedIn } = useUser();
+
      const navigate = useNavigate();
 
      const [isOpen, setIsOpen] = useState(false);
-     const [isLoggedIn, setIsLoggedIn] = useState(false); // This should be managed by your auth system
 
      return (
           <header className="bg-white shadow-md sticky top-0 z-50">
@@ -43,20 +46,22 @@ const Header = () => {
                                         ))}
                                    </ul>
                               </nav>
-                              {/* {isLoggedIn ? (
+                              {isSignedIn ? (
+                                   // <button
+                                   //      onClick={() => navigate('/profile')}
+                                   //      className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
+                                   // >
+                                   //      Profile
+                                   // </button>
+                                   <UserButton />
+                              ) : (
                                    <button
-                                        onClick={() => navigate('/profile')}
+                                        onClick={() => navigate('/sign-in')}
                                         className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
                                    >
-                                        Profile
+                                        Sign In
                                    </button>
-                              ) : ( */}
-                              <button
-                                   onClick={() => navigate('/sign-in')}
-                                   className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
-                              >
-                                   Sign In
-                              </button>
+                              )}
                          </div>
                          <div className="md:hidden">
                               <button
@@ -87,16 +92,17 @@ const Header = () => {
                                                   </Link>
                                              </li>
                                         ))}
-                                        {/* {isLoggedIn ? (
+                                        {isSignedIn ? (
                                              <li>
-                                                  <button
+                                                  {/* <button
                                                        onClick={() => navigate('/profile')}
                                                        className="block text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out"
                                                   >
                                                        Profile
-                                                  </button>
+                                                  </button> */}
+                                                  <UserButton />
                                              </li>
-                                        ) : ( */}
+                                        ) : (
                                              <li>
                                                   <button
                                                        onClick={() => navigate('/sign-in')}
@@ -105,7 +111,7 @@ const Header = () => {
                                                        Sign In
                                                   </button>
                                              </li>
-                                        {/* )} */}
+                                        )}
                                    </ul>
                               </nav>
                          </div>
