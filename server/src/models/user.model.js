@@ -19,6 +19,14 @@ const userSchema = new mongoose.Schema({
      },
      profileImage: {
           type: String
+     },
+     subscribedChannels:{
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Channel'
+     },
+     createdChannels:{
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Channel'
      }
 }, {
      timestamps: true
