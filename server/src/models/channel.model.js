@@ -1,0 +1,24 @@
+import mongoose from "mongoose";
+
+const channelSchema = new mongoose.Schema({
+     name:{
+          type: String,
+          required: true,
+          unique: true
+     },
+     description:{
+          type: String,
+          required: true,
+          enum:['Addiction Support', 'Anxiety Support', 'Depression Support', 'habit building'],
+          trim: true
+     },
+     author:{
+          type:mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+          required: true
+     }
+})
+
+const Channel = mongoose.model("Channel", channelSchema);
+
+export default Channel
