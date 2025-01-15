@@ -1,11 +1,11 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Footer from './components/Footer';
+import Header from './components/header/Header';
+import Hero from './components/home/Hero';
+import Features from './components/home/Features';
+import Footer from './components/footer/Footer';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import SignInPage from './components/SignInPage';
-import SignUpPage from './components/SignUpPage';
+import SignInPage from './components/auth/SignInPage';
+import SignUpPage from './components/auth/SignUpPage';
 
 const HomePage = () => (
   <>
