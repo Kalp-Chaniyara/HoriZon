@@ -6,35 +6,32 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import SignInPage from './components/auth/SignInPage';
 import SignUpPage from './components/auth/SignUpPage';
+import DiscussionLayout from './components/discuss/DiscussionLayout';
 
-const HomePage = () => (
+interface Props { }
+
+const HomePage: React.FC = () => (
   <>
+    <Header />
     <Hero />
     <Features />
+    <Footer />
   </>
 )
 
-const App = () => {
+function App(props: Props) {
+  const { } = props
+
   return (
-    <div className="flex flex-col min-h-screen">
-
-      <Routes>
-        <Route path="/" element={<Header />} />
-      </Routes>
-
-      <main className="flex-grow">
-
-      </main>
-
+    <>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/discuss" element={<DiscussionLayout />} />
       </Routes>
-
-      <Footer />
-    </div>
+    </>
   );
-};
+}
 
-export default App;
+export default App
