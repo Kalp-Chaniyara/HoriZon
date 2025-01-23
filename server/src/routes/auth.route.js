@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AddUserToDB } from "../controllers/AddUserToDB.controller.js";
+import { AddUserToDB } from "../controllers/user.controller.js";
 import bodyParser from "body-parser";
 
 const route = Router();
