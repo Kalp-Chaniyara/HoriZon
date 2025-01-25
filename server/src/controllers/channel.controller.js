@@ -55,3 +55,28 @@ export const AddChannelToDB = async (req, res) => {
           })
      }
 }
+
+export const FindChannelInDB = async (req, res) => {
+     const { searchQuery } = req.body;
+     try {
+
+          const query = searchQuery.trim();
+
+          // console.log("Query: ", query);
+
+          const channel = await Channel.findOne({name:query, isPublic: true});
+
+          // console.log("Channel: ", channel);
+
+          const channelName = channel.name;
+
+          return void res.status(200).json({
+               message: "Channel found successfully",
+               channelName
+          })
+     } catch (error) {
+          return void res.status(400).json({
+               message: error.message,
+          })
+     }
+}

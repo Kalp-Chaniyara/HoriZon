@@ -13,7 +13,7 @@ app.use(e.json()); // To parse JSON request bodies
 app.use(e.urlencoded({ extended: true }));
 
 app.use(cors({
-     origin: "http://localhost:5173",
+     origin: "*",
      credentials: true,
 }))
 
