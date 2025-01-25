@@ -3,23 +3,24 @@ import User from "../models/user.model.js";
 
 export const AddChannelToDB = async (req, res) => {
      // console.log("Channel: ", req.body);
-     const { name, description, author } = req.body;
+     const { name, description, author, isPublic } = req.body;
      try{
 
-          console.log("Name: ", name);
-          console.log("Description: ", description);
-          console.log("Author: ", author);
+          // console.log("Name: ", name);
+          // console.log("Description: ", description);
+          // console.log("Author: ", author);
+          // console.log("Public: ", isPublic);
 
-          // if(!name || !description || !author){
-          //      return res.status(400).json({message:"All fields are required"})
-          // }
+          if(!name || !description || !author){
+               return res.status(400).json({message:"All fields are required"})
+          }
 
           const user = await User.findOne({clerkId: author});
 
           console.log("User: ", user);
 
           if(!user){
-               return res.status(400).json({message:"User does not exist"})
+               return res.status(400).json({message:"User does not exist, please sign up"})
           }
 
           const authorId = user._id;
@@ -33,7 +34,8 @@ export const AddChannelToDB = async (req, res) => {
           const channel = new Channel({
                name,
                description,
-               author: authorId
+               author: authorId,
+               isPublic
           })
 
           if (channel) {
