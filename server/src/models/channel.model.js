@@ -9,7 +9,7 @@ const channelSchema = new mongoose.Schema({
      description:{
           type: String,
           required: true,
-          enum:['Addiction Support', 'Anxiety Support', 'Depression Support', 'habit building'],
+          enum:['Addiction Support', 'Anxiety Support', 'Depression Support', 'Habit Building'],
           trim: true
      },
      author:{
