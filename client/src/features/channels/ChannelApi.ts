@@ -7,11 +7,6 @@ interface channelData{
      isPublic:boolean
 }
 
-interface Channel{
-     id:string|null,
-     name: string,
-}
-
 export const channelApi = api.injectEndpoints({
      endpoints:(builder)=>({
           createChannel:builder.mutation({
