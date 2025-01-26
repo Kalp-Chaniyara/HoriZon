@@ -1,6 +1,5 @@
-import ChannelSidebarLayout from "./ChannelSidebarLayout"
-import ChatArea from "./ChatArea"
-
+import ChannelSidebarLayout from "../features/channels/ChannelSidebarLayout"
+import ChatArea from "../features/messages/ChatArea"
 
 function DiscussionLayout() {
      return (
