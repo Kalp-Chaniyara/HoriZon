@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
 
 const Header = () => {
 
-     const { isSignedIn } = useUser();
+     const { isSignedIn, isLoaded } = useUser();
 
      const navigate = useNavigate();
 
@@ -46,13 +46,9 @@ const Header = () => {
                                         ))}
                                    </ul>
                               </nav>
-                              {isSignedIn ? (
-                                   // <button
-                                   //      onClick={() => navigate('/profile')}
-                                   //      className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out"
-                                   // >
-                                   //      Profile
-                                   // </button>
+                              {!isLoaded ? (
+                                   <div className="h-8 w-8 bg-gray-200 rounded-full animate-pulse"></div>
+                              ) : isSignedIn ? (
                                    <UserButton />
                               ) : (
                                    <button
