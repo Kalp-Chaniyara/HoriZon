@@ -41,6 +41,12 @@ export const AddChannelToDB = async (req, res) => {
                })
           }
 
+          await User.findByIdAndUpdate(
+               authorId,
+               {$push : {createdChannels: channel._id}}, //Add the channel to the user's createdChannels array
+               {new : true} //Return the updated document
+          )
+
           return void res.status(200).json({
                message: "Channel saved successfully",
                channel
