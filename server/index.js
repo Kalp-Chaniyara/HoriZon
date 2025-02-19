@@ -9,7 +9,6 @@ dotenv.config();
 
 const app = e();
 
-app.use(e.json()); // To parse JSON request bodies
 app.use(e.urlencoded({ extended: true }));
 
 app.use(cors({
@@ -19,7 +18,12 @@ app.use(cors({
 
 //! Webhooks Endpoint
 app.use('/api/webhooks/auth/', authRoute)
+app.use(e.json()); // To parse JSON request bodies
 app.use('/api/channel/', channelRoute)
+
+app.get("/demo", (req, res)=>{
+     res.send("Hello World");
+})
 
 
 app.listen(3000, () => {

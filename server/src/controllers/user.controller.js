@@ -19,6 +19,8 @@ export const AddUserToDB = async (req, res) => {
      const headers = req.headers
      const payload = req.body
 
+     console.log("Type of payload: ", typeof payload);
+
      // Get Svix headers for verification
      const svix_id = headers['svix-id']
      const svix_timestamp = headers['svix-timestamp']
@@ -31,6 +33,10 @@ export const AddUserToDB = async (req, res) => {
                message: 'Error: Missing svix headers',
           })
      }
+
+     // console.log("Payload: ", payload);
+
+     // console.log("Headers: ", headers);
 
      let evt
 
